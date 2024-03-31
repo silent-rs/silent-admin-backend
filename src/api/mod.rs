@@ -18,11 +18,22 @@ pub fn get_route() -> Route {
                 )
         )
         .append(
-            Route::new("admin").append(
-                Route::new("Index").append(
-                    Route::new("login")
-                        .get(admin::index::login::get_login_setting)
-                )
+            Route::new("admin")
+                .append(
+                    Route::new("Index").append(
+                        Route::new("login")
+                            .get(admin::index::login::get_login_setting)
+                            .post(admin::index::login::post_login)
+                    ).append(
+                        Route::new("index")
+                            .get(admin::index::index::index)
+                    )
+                ).append(
+                Route::new("dashboard")
+                    .append(
+                        Route::new("index")
+                            .get(admin::dashboard::index::index)
+                    )
             )
         )
         .append(
