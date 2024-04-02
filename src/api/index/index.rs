@@ -159,7 +159,8 @@ pub async fn index(_req: Request) -> Result<Value> {
             }
         ],
         "menus": []
-    }"#.to_string();
+    }"#
+    .to_string();
     let data = serde_json::from_str::<Value>(&data)?;
     Ok(data)
 }
