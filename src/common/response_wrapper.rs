@@ -1,7 +1,7 @@
-use std::time::{SystemTime, UNIX_EPOCH};
 use serde::Serialize;
 use serde_json::Value;
 use silent::SilentError;
+use std::time::{SystemTime, UNIX_EPOCH};
 
 #[derive(Serialize)]
 /// ResponseWrapper is a wrapper for the response body.
@@ -27,9 +27,12 @@ impl ResponseWrapper {
     pub fn from_error(error: SilentError) -> Self {
         ResponseWrapper {
             data: None,
-            msg: error.to_string(),
+            msg: error.message(),
             code: error.status_code().as_u16(),
-            time: SystemTime::now().duration_since(UNIX_EPOCH).unwrap().as_secs(),
+            time: SystemTime::now()
+                .duration_since(UNIX_EPOCH)
+                .unwrap()
+                .as_secs(),
         }
     }
     pub fn from_data(data: Option<Value>) -> Self {
@@ -37,7 +40,10 @@ impl ResponseWrapper {
             data,
             msg: "成功".to_string(),
             code: 1,
-            time: SystemTime::now().duration_since(UNIX_EPOCH).unwrap().as_secs(),
+            time: SystemTime::now()
+                .duration_since(UNIX_EPOCH)
+                .unwrap()
+                .as_secs(),
         }
     }
 }
