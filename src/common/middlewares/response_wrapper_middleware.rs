@@ -1,7 +1,7 @@
-use async_trait::async_trait;
-use silent::{MiddleWareHandler, Response, Result, MiddlewareResult};
-use silent::prelude::ResBody;
 use crate::ResponseWrapper;
+use async_trait::async_trait;
+use silent::prelude::ResBody;
+use silent::{MiddleWareHandler, MiddlewareResult, Response, Result};
 
 pub struct ResponseWrapperMiddleware;
 

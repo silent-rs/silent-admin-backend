@@ -15,7 +15,5 @@ pub struct LoginResponse {
 pub async fn login(mut req: Request) -> Result<LoginResponse> {
     let body: LoginRequest = req.json_parse().await?;
     let access_token = format!("{}:{}", body.username, body.password);
-    Ok(LoginResponse {
-        access_token
-    })
+    Ok(LoginResponse { access_token })
 }

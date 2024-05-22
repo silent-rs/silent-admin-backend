@@ -1030,7 +1030,8 @@ pub async fn list(_req: Request) -> Result<Value> {
                 "isKeepAlive": true
             }
         }
-    ]"#.to_string();
+    ]"#
+    .to_string();
     let list = serde_json::from_str::<Value>(&menu_list)?;
     Ok(list)
 }

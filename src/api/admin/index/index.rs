@@ -2,7 +2,8 @@ use serde_json::Value;
 use silent::{Request, Result};
 
 pub async fn index(_req: Request) -> Result<Value> {
-    let result = serde_json::from_str(r#"{
+    let result = serde_json::from_str(
+        r#"{
         "adminInfo": {
             "id": 1,
             "username": "admin",
@@ -1377,6 +1378,7 @@ pub async fn index(_req: Request) -> Result<Value> {
             "installServicePort": "8000",
             "npmPackageManager": "pnpm"
         }
-    }"#)?;
+    }"#,
+    )?;
     Ok(result)
 }

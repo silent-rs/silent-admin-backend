@@ -19,7 +19,8 @@ pub async fn buttons(_req: Request) -> Result<Value> {
             "import",
             "export"
         ]
-    }"#.to_string();
+    }"#
+    .to_string();
     let list = serde_json::from_str::<Value>(&buttons)?;
     Ok(list)
 }
