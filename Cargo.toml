@@ -10,7 +10,7 @@ async-trait = "0.1.79"
 bytes = { version = "1.6.0", features = ["serde"] }
 serde = { version = "1.0.197", features = ["derive"] }
 serde_json = "1.0.115"
-silent = { version = "1", path = "silent" }
+silent = { version = "1", path = "silent/silent" }
 silent-db = { version = "0", features = ["mysql"] }
 once_cell = "1.19.0"
 time = { version = "0.3.34", features = ["local-offset"] }
