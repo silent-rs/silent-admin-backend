@@ -7,9 +7,7 @@ pub struct LoginSettingResponse {
 }
 
 pub async fn get_login_setting(_req: Request) -> Result<LoginSettingResponse> {
-    Ok(LoginSettingResponse {
-        captcha: false,
-    })
+    Ok(LoginSettingResponse { captcha: false })
 }
 
 #[derive(Deserialize, Serialize)]
@@ -24,14 +22,12 @@ pub struct LoginRequest {
     pub username: String,
     pub password: String,
     pub keep: bool,
-    pub captcha_id: String,
-    pub captcha_info: String,
+    pub captcha_id: Option<String>,
+    pub captcha_info: Option<String>,
 }
 
 pub async fn login(_req: Request) -> Result<LoginSettingResponse> {
-    Ok(LoginSettingResponse {
-        captcha: false,
-    })
+    Ok(LoginSettingResponse { captcha: false })
 }
 
 // post login request
@@ -73,7 +69,8 @@ pub async fn post_login(mut req: Request) -> Result<LoginResponse> {
             id: 1,
             username: "admin".to_string(),
             nickname: "Admin".to_string(),
-            avatar: "https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif".to_string(),
+            avatar: "https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif"
+                .to_string(),
             last_login_time: "2024-03-31 15:08:20".to_string(),
             token: "admin-token".to_string(),
             refresh_token: "admin-refresh-token".to_string(),
